@@ -53,7 +53,7 @@ public class enemyMovement : MonoBehaviour {
         else if (enemyOpen() ==true)
         {
             FollowEnemy();
-            gameObject.tag = "Follower";
+            //gameObject.tag = "Follower";
 
         }
         /*
@@ -72,18 +72,6 @@ public class enemyMovement : MonoBehaviour {
 
     }
 
-    bool InSight()
-    {
-        foreach(GameObject go in targetFollow)
-        {
-            if (targetOpen() == true)
-            {
-                return true;
-            }
-            
-        }
-        return false;
-    }
 
     private bool targetOpen()
     {
@@ -213,6 +201,7 @@ public class enemyMovement : MonoBehaviour {
     void Moving()
     {
         colour = Color.green;
+
         Vector3 move = transform.forward * moveSpeed;
         rb.MovePosition(rb.position + move);
 
@@ -223,7 +212,7 @@ public class enemyMovement : MonoBehaviour {
     }
 
 
-    //generates a random number for turning and changes every second
+    //generates a random number for turning and changes every second and tries to stop the enemies from colliding into the walls
     IEnumerator randomMovement()
     {
         turnSpeed = 0;
